@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const port = process.env.PORT || 3000
 
 const authRoutes = require('./routes/auth.routes');
 const adminRoutes = require('./routes/admin.routes');
@@ -19,4 +20,6 @@ app.use('/admin', adminRoutes);
 app.use(userRoutes);
 // app.get('/users', authController.getUsers);
 
-app.listen(3000);
+app.listen(port, ()=>{
+    console.log(port);
+});
