@@ -10,8 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: '*',
-    optionsSuccessStatus: 200
+    origin: false,
 }));
 
 app.get('/', (req, res)=>{
