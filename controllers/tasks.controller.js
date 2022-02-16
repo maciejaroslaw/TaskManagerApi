@@ -6,15 +6,8 @@ exports.createTask = (req, res) => {
         const description = req.body.description;
         const priority = req.body.priority;
         const task = new Task(id, title, description, priority);
-        task.save(response=>{
-            if(response==="OK"){
-                res.status(200).send({message: "Task created!"});
-            }else{
-                res.status(500).send({
-                    message: res,
-                })
-            }
-        });
+        task.save();
+        res.status(200).send({message: "Task created!"});
     })
 };
 exports.getTasks = (req, res) => {

@@ -30,10 +30,9 @@ module.exports = class Task {
         getTasksFromFile(tasks => {
             tasks.push(this);
             fs.writeFile(p, JSON.stringify(tasks), err => {
-              cb(err);
+              console.log(err)
               return;
             });
-            cb("OK");
         })
     }
 
