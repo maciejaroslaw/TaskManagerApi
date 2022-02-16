@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://620cebd0718e4c000837af0e--adoring-banach-08ca3c.netlify.app',
+    origin: '*',
     optionsSuccessStatus: 200
 }));
 
