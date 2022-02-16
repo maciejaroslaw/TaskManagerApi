@@ -8,10 +8,7 @@ const userRoutes = require('./routes/user.routes');
 
 const app = express();
 
-app.use(cors({
-    origin: '*',
-    optionsSuccessStatus: 200 // For legacy browser support
-}));
+app.use(cors());
 
 app.use(express.json());
 
