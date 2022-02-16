@@ -6,16 +6,15 @@ exports.createTask = (req, res) => {
         const description = req.body.description;
         const priority = req.body.priority;
         const task = new Task(id, title, description, priority);
-        task.save(res=>{
-            if(res==="OK"){
-                res.send({message: "Task created!"});
+        task.save(response=>{
+            if(response==="OK"){
+                res.status(200).send({message: "Task created!"});
             }else{
                 res.status(500).send({
                     message: res,
                 })
             }
         });
-
     })
 };
 exports.getTasks = (req, res) => {
@@ -39,5 +38,5 @@ exports.editTask = (req, res) => {
 };
 exports.deleteTask = (req, res) => {
     Task.deleteTask(req.params.id);
-    res.send({message: "Propably it worked"});
+    res.status(200).send({message: "Propably it worked"});
 }
