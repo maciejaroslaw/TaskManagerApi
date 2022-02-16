@@ -8,27 +8,20 @@ const userRoutes = require('./routes/user.routes');
 
 const app = express();
 
+app.use(cors({
+    origin: '*',
+    optionsSuccessStatus: 200 // For legacy browser support
+}));
+
 app.use(express.json());
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
 
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,x-access-token');
-
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    next();
-});
-
-app.get('/', (req, res)=>{
-    res.send("Działam");
-})
 
 app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
 app.use(userRoutes);
-// app.get('/users', authController.getUsers);
+app.get('/', (req, res)=>{
+    res.send("Działam");
+})
 
 app.listen(port, ()=>{
     console.log(port);
