@@ -10,7 +10,7 @@ router.get('/tasks', [authJwt.verifyToken], tasks.getTasks);
 
 router.get('/tasks/:id', [authJwt.verifyToken], )
 
-router.put('/edit-task/:id', [authJwt.verifyToken], tasks.editTask);
+router.put('/tasks/:id', [authJwt.verifyToken], tasks.editTask);
 
 
 module.exports = router;

@@ -25,13 +25,16 @@ module.exports = class User {
     this.role = 'user';
   }
 
-  save() {
+  save(cb) {
     getUsersFromFile(users => {
         users.push(this);
         fs.writeFile(p, JSON.stringify(users), err => {
-          return err;
+          if(err){
+            cb(err);
+          }else{
+            cb("success")
+          }
         });
-        return "Success"
     })
   }
 

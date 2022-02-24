@@ -1,8 +1,1 @@
-[
-  {
-    "id": 2,
-    "username": "admin",
-    "password": "$2a$08$6zKbGYRYS88uKfzITKbbteZr5ee153eYHQsTJb.yINx/wlq6oF7fu",
-    "role": "admin"
-  }
-]
+[{"id":2,"username":"admin","password":"$2a$08$6zKbGYRYS88uKfzITKbbteZr5ee153eYHQsTJb.yINx/wlq6oF7fu","role":"admin"},{"id":3,"username":"maciej","password":"$2a$08$RYGrZIV2/VfuxFnWqZk6z.SeS69/FOmw8nKVAC.ppXYlaygv.0OQe","role":"user"}]

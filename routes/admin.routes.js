@@ -7,11 +7,11 @@ const tasks = require('../controllers/tasks.controller');
 
 const router = express.Router();
 
-router.get('/employees', [authJwt.verifyToken, authJwt.isAdmin], users.usersList);
+router.get('/users', [authJwt.verifyToken, authJwt.isAdmin], users.usersList);
 
-router.post('/create-task', [authJwt.verifyToken, authJwt.isAdmin], tasks.createTask);
+router.post('/tasks', [authJwt.verifyToken, authJwt.isAdmin], tasks.createTask);
 
-router.delete('/delete-task/:id', [authJwt.verifyToken, authJwt.isAdmin], tasks.deleteTask);
+router.delete('/tasks/:id', [authJwt.verifyToken, authJwt.isAdmin], tasks.deleteTask);
 
 
 module.exports = router;

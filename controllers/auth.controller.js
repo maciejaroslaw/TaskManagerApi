@@ -11,12 +11,16 @@ exports.signup = (req, res) => {
         const username = req.body.username;
         const password = bcrypt.hashSync(req.body.password, 8);
         const user = new User(id, username, password);
-        let isSaved = user.save();
-        if(isSaved === "Success"){
-            res.status(201).send({message: "User registered!"})
-        }else{
-            res.status(500).send({message: isSaved})
-        }
+        user.save(isSaved => {
+            console.log(isSaved);
+            if(isSaved === "success"){
+                res.status(201).send({message: "User registered!"});
+                return;
+            }else{
+                res.status(500).send({message: isSaved});
+                return;
+            }
+        });
     })
 };
 exports.signin = (req, res) => {

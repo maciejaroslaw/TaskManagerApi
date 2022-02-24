@@ -30,13 +30,16 @@ module.exports = class Task {
         getTasksFromFile(tasks => {
             tasks.push(this);
             fs.writeFile(p, JSON.stringify(tasks), err => {
-              console.log(err)
-              return;
+              if(err){
+                cb(err)
+              }else{
+                cb("success")
+              }
             });
         })
     }
 
-    static editTask(taskToEdit){
+    static editTask(taskToEdit, cb){
       getTasksFromFile(tasks => {
         let targetTask = tasks.find(t=>t.id === taskToEdit.id);
         let indexOfTarget = tasks.indexOf(targetTask);
@@ -44,23 +47,30 @@ module.exports = class Task {
         tasks[indexOfTarget] = taskToEdit;
 
         fs.writeFile(p, JSON.stringify(tasks), err => {
-          return err;
+          if(err){
+            cb(err);
+          }else{
+            cb({status: 'success', task: tasks[indexOfTarget]});
+          }
         });
-        return tasks[indexOfTarget];
       })
     }
 
-    static deleteTask(id){
+    static deleteTask(id, cb){
       getTasksFromFile(tasks=>{
         // console.log(taskToDelete);
         let taskToDelete = tasks.find(t=>t.id === +id);
         let updatedTasks = tasks.filter(t=>t!=taskToDelete);
 
         fs.writeFile(p, JSON.stringify(updatedTasks), err => {
-          return err;
+          if(err){
+            cb(err);
+          }else{
+            cb("success")
+          }
         });
       });
-      return "Task deleted"
+      
     }
 
     static fetchAll(cb) {

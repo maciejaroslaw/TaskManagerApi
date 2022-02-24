@@ -6,7 +6,7 @@ const verifySignUp = require('../middlewares/verifySignUp');
 
 const router = express.Router();
 
-router.post('/employees', [verifySignUp.checkDuplicateUsername], authController.signup);
+router.post('/users', [verifySignUp.checkDuplicateUsername], authController.signup);
 
 router.post('/login', authController.signin);
 
