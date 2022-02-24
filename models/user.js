@@ -29,8 +29,9 @@ module.exports = class User {
     getUsersFromFile(users => {
         users.push(this);
         fs.writeFile(p, JSON.stringify(users), err => {
-          console.log(err);
+          return err;
         });
+        return "Success"
     })
   }
 
