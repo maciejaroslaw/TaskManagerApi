@@ -34,7 +34,7 @@ exports.editTask = (req, res) => {
             return;
         }
     }
-
+    
     let editedTask = Task.editTask(req.body.taskToEdit);
     res.status(201).send({message: "Success", editedTask})
 };
