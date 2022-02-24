@@ -7,18 +7,25 @@ exports.createTask = (req, res) => {
         const priority = req.body.priority;
         const task = new Task(id, title, description, priority);
         task.save();
-        res.status(200).send({message: "Task created!"});
+        res.status(201).send({message: "Task created!", task: task});
     })
 };
 exports.getTasks = (req, res) => {
     Task.fetchAll(tasks => {
-        res.send({
+        res.status(200).send({
             tasks,
         })
     })
 };
+exports.getTask = (req, res) => {
+    Task.fetchAll(tasks => {
+        targetTask = tasks.find(t=>t.id === req.params.id);
+        if(targetTask){
+            res.status(200).send(targetTask);
+        }
+    })
+}
 exports.editTask = (req, res) => {
-    Task.editTask(req.body.taskToEdit);
     for(const [key, val] of Object.entries(req.body.taskToEdit)){
         if(val === "" || val === null){
             res.status(422).send({
@@ -27,7 +34,9 @@ exports.editTask = (req, res) => {
             return;
         }
     }
-    res.send({message: "Success"})
+    
+    let editedTask = Task.editTask(req.body.taskToEdit);
+    res.status(200).send({message: "Success", editedTask})
 };
 exports.deleteTask = (req, res) => {
     Task.deleteTask(req.params.id);

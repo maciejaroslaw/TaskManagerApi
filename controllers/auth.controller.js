@@ -40,15 +40,13 @@ exports.signin = (req, res) => {
             });
 
             res.status(200).send({
-                user,
+                user:{
+                    id: user.id,
+                    username: user.username,
+                    role: user.role,
+                },
                 accessToken: token,
             })
         }
-    })
-};
-
-exports.getUsers = (req, res) => {
-    User.fetchAll(users => {
-        res.send(users);
     })
 };

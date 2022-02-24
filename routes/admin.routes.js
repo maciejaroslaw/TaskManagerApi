@@ -7,7 +7,7 @@ const tasks = require('../controllers/tasks.controller');
 
 const router = express.Router();
 
-router.get('/users', [authJwt.verifyToken, authJwt.isAdmin], users.usersList);
+router.get('/employees', [authJwt.verifyToken, authJwt.isAdmin], users.usersList);
 
 router.post('/create-task', [authJwt.verifyToken, authJwt.isAdmin], tasks.createTask);
 

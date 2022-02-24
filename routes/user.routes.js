@@ -7,7 +7,10 @@ const tasks = require('../controllers/tasks.controller');
 const router = express.Router();
 
 router.get('/tasks', [authJwt.verifyToken], tasks.getTasks);
-router.put('/edit-task', [authJwt.verifyToken], tasks.editTask);
+
+router.get('/tasks/:id', [authJwt.verifyToken], )
+
+router.put('/edit-task/:id', [authJwt.verifyToken], tasks.editTask);
 
 
 module.exports = router;

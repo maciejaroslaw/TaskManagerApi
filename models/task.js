@@ -44,8 +44,9 @@ module.exports = class Task {
         tasks[indexOfTarget] = taskToEdit;
 
         fs.writeFile(p, JSON.stringify(tasks), err => {
-          console.log(err);
+          return err;
         });
+        return tasks[indexOfTarget];
       })
     }
 
