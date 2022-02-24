@@ -39,6 +39,6 @@ exports.editTask = (req, res) => {
     res.status(201).send({message: "Success", editedTask})
 };
 exports.deleteTask = (req, res) => {
-    Task.deleteTask(req.params.id);
-    res.status(200).send({message: "Propably it worked"});
+    let isDeleted = Task.deleteTask(req.params.id);
+    res.status(204).send({message: isDeleted});
 }

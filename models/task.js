@@ -57,9 +57,10 @@ module.exports = class Task {
         let updatedTasks = tasks.filter(t=>t!=taskToDelete);
 
         fs.writeFile(p, JSON.stringify(updatedTasks), err => {
-          console.log(err);
+          return err;
         });
-      })
+      });
+      return "Task deleted"
     }
 
     static fetchAll(cb) {
