@@ -1,20 +1,8 @@
 [
   {
     "id": 2,
-    "username": "Maciej",
+    "username": "admin",
     "password": "$2a$08$6zKbGYRYS88uKfzITKbbteZr5ee153eYHQsTJb.yINx/wlq6oF7fu",
     "role": "admin"
-  },
-  {
-    "id": 3,
-    "username": "Kamil",
-    "password": "$2a$08$yV3686Azj8VfrcRLQsvzvOFsXTcRIFXwQ4UOV1XnVE4CTapVNPUpS",
-    "role": "user"
-  },
-  {
-    "id": 4,
-    "username": "Krystian",
-    "password": "$2a$08$bCC/Fh791frMaAb531SJZOeft1RU7H/dhHC.xG8JsAcVt4EZzv8Ui",
-    "role": "user"
   }
 ]
