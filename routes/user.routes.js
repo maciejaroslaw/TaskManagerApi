@@ -8,8 +8,6 @@ const router = express.Router();
 
 router.get('/tasks', [authJwt.verifyToken], tasks.getTasks);
 
-router.get('/tasks/:id', [authJwt.verifyToken], )
-
 router.put('/tasks/:id', [authJwt.verifyToken], tasks.editTask);
 
 
